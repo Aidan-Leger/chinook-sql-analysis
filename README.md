@@ -5,7 +5,7 @@ questions about revenue concentration, customer value, and sales rep performance
 
 ## Dataset
 
-[Chinook](https://github.com/lerocha/chinook-database) — an open sample database
+[Chinook](https://github.com/lerocha/chinook-database) - an open sample database
 representing a digital media store. 11 related tables covering artists, albums,
 tracks, customers, invoices, and employees. Loaded into PostgreSQL 18 from the
 `Chinook_PostgreSql.sql` script; the data file is not included in this repo.
@@ -15,19 +15,19 @@ Total revenue across the dataset: **$2,328.60** from **59 customers** in **24 co
 ## Questions and Findings
 
 ### 1. Which genres generate the most revenue?
-`01_revenue_by_genre.sql` — joins `invoice_line` → `track` → `genre`
+`01_revenue_by_genre.sql` - joins `invoice_line` → `track` → `genre`
 
-- Rock dominates at **$826.65 (35.5% of all revenue)** — more than the bottom 20
+- Rock dominates at **$826.65 (35.5% of all revenue)** - more than the bottom 20
   genres combined.
 - The top 4 genres produce **73.5%** of revenue: Rock, Latin ($382.14), Metal
   ($261.36), and Alternative & Punk ($241.56).
 - Rock-related genres together account for roughly **58%**, pointing to a catalog
   and customer base centered on rock.
 - Long tail: 11 genres each earn under $20, including names you would expect to
-  sell — Pop ($27.72) and Hip Hop ($16.83) sit near the bottom.
+  sell - Pop ($27.72) and Hip Hop ($16.83) sit near the bottom.
 
 ### 2. Who are the top customers, and where is revenue concentrated?
-`02_top_customers_by_country.sql` — joins `invoice` → `customer`
+`02_top_customers_by_country.sql` - joins `invoice` → `customer`
 
 - **Revenue is driven by customer count, not customer value.** Spending is flat
   across the entire base ($37.62–$49.62, average $39.47), so revenue share tracks
@@ -40,17 +40,17 @@ Total revenue across the dataset: **$2,328.60** from **59 customers** in **24 co
 - 15 of 24 countries have only one customer, so most of the tail rests on single accounts.
 
 ### 3. Do sales reps differ in performance?
-`03_sales_rep_performance.sql` — joins `invoice` → `customer` → `employee`
+`03_sales_rep_performance.sql` - joins `invoice` → `customer` → `employee`
 
 - **Apparent performance gaps are an artifact of customer assignment.** The leading
-  rep earns 15.7% more than the lowest and has 16.7% more customers — the extra
+  rep earns 15.7% more than the lowest and has 16.7% more customers - the extra
   accounts explain the entire gap.
 - Per-customer revenue differs by only **$1.24** across the three reps, which is
   noise at roughly 20 customers each.
 - Revenue splits almost evenly, each rep at roughly a third.
 
 ### Across all three
-Two independent angles — geography and rep assignment — land on the same conclusion:
+Two independent angles - geography and rep assignment - land on the same conclusion:
 this store's revenue scales with the number of customers, not with how much any
 customer or segment spends. Growth means acquisition, not upselling.
 
